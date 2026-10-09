@@ -1,0 +1,21 @@
+policies:
+  - id: SSH_ENABLED
+    description: SSH version 2 is enabled
+    pattern: '^ip ssh version 2\s*$'
+    expect: present
+  - id: NO_HTTP_SERVER
+    description: Insecure HTTP server is disabled
+    pattern: '^ip http server\s*$'
+    expect: absent
+  - id: LOGGING_ENABLED
+    description: Remote syslog server is configured
+    pattern: '^logging host\s+\S+|^logging\s+\d{1,3}(?:\.\d{1,3}){3}\s*$'
+    expect: present
+  - id: NTP_CONFIGURED
+    description: NTP server is configured
+    pattern: '^ntp server\s+\S+'
+    expect: present
+  - id: AAA_ENABLED
+    description: AAA new-model is enabled
+    pattern: '^aaa new-model\s*$'
+    expect: present
